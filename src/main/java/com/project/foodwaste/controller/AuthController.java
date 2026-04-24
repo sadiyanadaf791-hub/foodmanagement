@@ -26,7 +26,11 @@ public class AuthController {
                             @RequestParam(value = "logout", required = false) String logout,
                             Model model) {
         if (error != null) {
-            model.addAttribute("errorMessage", "Invalid username or password");
+            if ("invalidRole".equals(error)) {
+                model.addAttribute("errorMessage", "Invalid role selected");
+            } else {
+                model.addAttribute("errorMessage", "Invalid username, password, or role selection");
+            }
         }
         if (logout != null) {
             model.addAttribute("successMessage", "You have been logged out successfully");

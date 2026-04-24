@@ -18,9 +18,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class UserService implements UserDetailsService, UserDetailsPasswordService {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -33,16 +37,26 @@ public class UserService implements UserDetailsService, UserDetailsPasswordServi
 
     @Override
     public UserDetails loadUserByUsername(String identifier) throws UsernameNotFoundException {
+        logger.debug("Loading user: {}", identifier);
         User user = userRepository.findByUsername(identifier)
                 .or(() -> userRepository.findByEmail(identifier))
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + identifier));
+
+        logger.debug("User found: {} with role: {}", user.getUsername(), user.getRole());
+
+        String roleName = user.getRole().name();
+        if (!roleName.startsWith("ROLE_")) {
+            roleName = "ROLE_" + roleName;
+        }
+
+        logger.debug("Final authority: {}", roleName);
 
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),
                 user.isEnabled(),
                 true, true, true,
-                Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRole().name()))
+                Collections.singletonList(new SimpleGrantedAuthority(roleName))
         );
     }
 

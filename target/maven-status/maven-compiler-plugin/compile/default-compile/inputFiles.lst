@@ -1,4 +1,8 @@
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\config\AsyncConfig.java
+C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\config\RoleAuthenticationDetailsSource.java
+C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\config\RoleBasedAuthenticationSuccessHandler.java
+C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\config\RoleCheckedDaoAuthenticationProvider.java
+C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\config\RoleWebAuthenticationDetails.java
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\config\SecurityConfig.java
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\config\WebConfig.java
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\controller\AdminController.java
@@ -6,9 +10,11 @@ C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\control
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\controller\AuthController.java
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\controller\DashboardController.java
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\controller\DonationController.java
+C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\controller\NgoController.java
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\controller\NotificationController.java
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\controller\PickupController.java
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\controller\RequestController.java
+C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\controller\TestNgoController.java
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\entity\Donation.java
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\entity\enums\DonationStatus.java
 C:\Users\dell\Desktop\foodmanagement\src\main\java\com\project\foodwaste\entity\enums\PickupStatus.java

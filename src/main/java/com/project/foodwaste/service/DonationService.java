@@ -18,15 +18,12 @@ import java.util.Optional;
 public class DonationService {
 
     private final DonationRepository donationRepository;
-    private final NotificationService notificationService;
     private final DonationAlertServer alertServer;
 
     @Autowired
     public DonationService(DonationRepository donationRepository,
-                           NotificationService notificationService,
                            DonationAlertServer alertServer) {
         this.donationRepository = donationRepository;
-        this.notificationService = notificationService;
         this.alertServer = alertServer;
     }
 
@@ -58,8 +55,14 @@ public class DonationService {
         return donationRepository.findByDonor(donor, pageable);
     }
 
+    @Transactional
     public List<Donation> findAvailableDonations() {
         return donationRepository.findAvailableDonations();
+    }
+
+    @Transactional
+    public List<Donation> getDashboardDonations() {
+        return donationRepository.findDashboardDonations();
     }
 
     public Page<Donation> findByStatus(DonationStatus status, Pageable pageable) {

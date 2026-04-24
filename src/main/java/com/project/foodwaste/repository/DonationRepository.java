@@ -32,6 +32,9 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     @Query("SELECT d FROM Donation d WHERE d.status = 'AVAILABLE' ORDER BY d.createdAt DESC")
     List<Donation> findAvailableDonations();
 
+    @Query("SELECT d FROM Donation d JOIN FETCH d.donor WHERE d.status = 'AVAILABLE' ORDER BY d.createdAt DESC")
+    List<Donation> findDashboardDonations();
+
     Page<Donation> findByFoodNameContainingIgnoreCaseAndStatus(String foodName, DonationStatus status, Pageable pageable);
 
     Page<Donation> findByFoodNameContainingIgnoreCase(String foodName, Pageable pageable);

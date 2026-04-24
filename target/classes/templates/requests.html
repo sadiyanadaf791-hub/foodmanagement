@@ -47,8 +47,8 @@
                         <tr th:each="req, iter : ${requests}">
                             <td th:text="${iter.count}">1</td>
                             <td><strong th:text="${req.donation.foodName}">Food</strong></td>
-                            <td th:if="${currentUser.role.name() != 'NGO'}" th:text="${req.ngo.fullName}">NGO</td>
-                            <td th:if="${currentUser.role.name() != 'DONOR'}" th:text="${req.donation.donor.fullName}">Donor</td>
+                            <td th:if="${currentUser.role.name() != 'NGO'}" th:text="${req.ngo != null ? req.ngo.fullName : 'N/A'}">NGO</td>
+                            <td th:if="${currentUser.role.name() != 'DONOR'}" th:text="${req.donation.donor != null ? req.donation.donor.fullName : 'N/A'}">Donor</td>
                             <td><span th:text="${req.message}" style="max-width:200px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">-</span></td>
                             <td>
                                 <span class="badge-status" th:classappend="'badge-' + ${req.status.name().toLowerCase()}" th:text="${req.status}">STATUS</span>

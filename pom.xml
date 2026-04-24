@@ -18,7 +18,7 @@
     <description>Food Waste Management and Redistribution Platform - SDG 2 Zero Hunger</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>

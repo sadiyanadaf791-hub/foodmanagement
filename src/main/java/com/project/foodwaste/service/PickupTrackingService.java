@@ -36,7 +36,7 @@ public class PickupTrackingService {
 
         tracking.setStatus(newStatus);
 
-        if (newStatus == PickupStatus.PICKED_UP) {
+        if (newStatus == PickupStatus.DELIVERED || newStatus == PickupStatus.PICKED) {
             tracking.setCompletedTime(LocalDateTime.now());
             tracking.getRequest().getDonation().setStatus(DonationStatus.PICKED_UP);
             donationRepository.save(tracking.getRequest().getDonation());

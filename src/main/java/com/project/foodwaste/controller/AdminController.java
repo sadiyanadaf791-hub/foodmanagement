@@ -20,17 +20,14 @@ public class AdminController {
     private final DonationService donationService;
     private final RequestService requestService;
     private final NotificationService notificationService;
-    private final PickupTrackingService pickupTrackingService;
 
     @Autowired
     public AdminController(UserService userService, DonationService donationService,
-                            RequestService requestService, NotificationService notificationService,
-                            PickupTrackingService pickupTrackingService) {
+                            RequestService requestService, NotificationService notificationService) {
         this.userService = userService;
         this.donationService = donationService;
         this.requestService = requestService;
         this.notificationService = notificationService;
-        this.pickupTrackingService = pickupTrackingService;
     }
 
     @GetMapping
@@ -50,9 +47,14 @@ public class AdminController {
         model.addAttribute("pendingRequests", requestService.countByStatus(RequestStatus.PENDING));
         model.addAttribute("acceptedRequests", requestService.countByStatus(RequestStatus.ACCEPTED));
         model.addAttribute("allUsers", userService.findAllUsers());
-        model.addAttribute("allDonations", donationService.findAvailableDonations());
+        model.addAttribute("allDonations", donationService.getDashboardDonations());
 
         return "admin";
+    }
+
+    @GetMapping("/dashboard")
+    public String adminDashboardView(Authentication auth, Model model) {
+        return adminDashboard(auth, model);
     }
 
     @PostMapping("/users/toggle/{id}")

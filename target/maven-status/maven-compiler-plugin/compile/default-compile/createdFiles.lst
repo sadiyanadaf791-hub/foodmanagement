@@ -6,6 +6,7 @@ com\project\foodwaste\socket\DonationAlertClient.class
 com\project\foodwaste\service\ExpiryCheckerService.class
 com\project\foodwaste\controller\RequestController$1.class
 com\project\foodwaste\entity\enums\PickupStatus.class
+com\project\foodwaste\controller\NgoController.class
 com\project\foodwaste\socket\DonationAlertServer$ClientHandler.class
 com\project\foodwaste\config\AsyncConfig.class
 com\project\foodwaste\repository\NotificationRepository.class
@@ -19,6 +20,7 @@ com\project\foodwaste\util\DateUtil.class
 com\project\foodwaste\controller\NotificationController.class
 com\project\foodwaste\entity\Donation.class
 com\project\foodwaste\socket\DonationAlertServer.class
+com\project\foodwaste\config\RoleCheckedDaoAuthenticationProvider.class
 com\project\foodwaste\controller\DonationController.class
 com\project\foodwaste\service\NotificationService.class
 com\project\foodwaste\entity\PickupTracking.class
@@ -31,10 +33,13 @@ com\project\foodwaste\service\SdgStatisticsService.class
 com\project\foodwaste\controller\AdminController.class
 com\project\foodwaste\FoodWasteApplication.class
 com\project\foodwaste\controller\ApiController.class
+com\project\foodwaste\config\RoleBasedAuthenticationSuccessHandler.class
 com\project\foodwaste\service\UserService.class
 com\project\foodwaste\repository\RequestRepository.class
 com\project\foodwaste\controller\RequestController.class
+com\project\foodwaste\config\RoleWebAuthenticationDetails.class
 com\project\foodwaste\config\SecurityConfig.class
 com\project\foodwaste\controller\DashboardController$1.class
 com\project\foodwaste\service\PickupTrackingService.class
+com\project\foodwaste\config\RoleAuthenticationDetailsSource.class
 com\project\foodwaste\entity\enums\DonationStatus.class

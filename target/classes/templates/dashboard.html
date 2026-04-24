@@ -136,7 +136,7 @@
                             <thead><tr><th>NGO</th><th>Food Item</th><th>Message</th><th>Status</th><th>Actions</th></tr></thead>
                             <tbody>
                             <tr th:each="req : ${incomingRequests}">
-                                <td th:text="${req.ngo.fullName}">NGO</td>
+                                <td th:text="${req.ngo != null ? req.ngo.fullName : 'N/A'}">NGO</td>
                                 <td th:text="${req.donation.foodName}">Food</td>
                                 <td th:text="${req.message}">-</td>
                                 <td>
@@ -165,25 +165,75 @@
         <div th:if="${currentUser.role.name() == 'NGO'}" data-socket-poll="true">
             <div id="socket-alerts"></div>
             <div class="row g-4 mb-4">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="stat-card green">
                         <div class="stat-icon"><i class="fas fa-clipboard-list"></i></div>
                         <div class="stat-value" th:text="${totalRequests}">0</div>
-                        <div class="stat-label">My Requests</div>
+                        <div class="stat-label">Total Requests</div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="stat-card blue">
-                        <div class="stat-icon"><i class="fas fa-check-double"></i></div>
+                        <div class="stat-icon"><i class="fas fa-handshake"></i></div>
                         <div class="stat-value" th:text="${acceptedRequests}">0</div>
-                        <div class="stat-label">Accepted</div>
+                        <div class="stat-label">Accepted Donations</div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="stat-card orange">
-                        <div class="stat-icon"><i class="fas fa-hourglass-half"></i></div>
-                        <div class="stat-value" th:text="${pendingRequests}">0</div>
-                        <div class="stat-label">Pending</div>
+                        <div class="stat-icon"><i class="fas fa-truck-loading"></i></div>
+                        <div class="stat-value" th:text="${pendingPickups}">0</div>
+                        <div class="stat-label">Pending Pickups</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card purple">
+                        <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="stat-value" th:text="${completedDeliveries}">0</div>
+                        <div class="stat-label">Completed Deliveries</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pickup Tracking Pipeline -->
+            <div class="panel mb-4" th:if="${myPickups != null && !myPickups.isEmpty()}">
+                <div class="panel-header">
+                    <h5><i class="fas fa-route me-2"></i>Pickup Tracking</h5>
+                </div>
+                <div class="panel-body p-0">
+                    <div class="table-container">
+                        <table class="table align-middle">
+                            <thead><tr><th>Food</th><th>Donor</th><th>Status</th></tr></thead>
+                            <tbody>
+                            <tr th:each="pickup : ${myPickups}">
+                                <td><strong th:text="${pickup.request.donation.foodName}">Food</strong></td>
+                                <td th:text="${pickup.request.donation.donor != null ? pickup.request.donation.donor.fullName : 'N/A'}">Donor</td>
+                                <td>
+                                    <!-- Tracking Pipeline -->
+                                    <div class="d-flex align-items-center justify-content-between tracking-pipeline" style="max-width: 400px; font-size: 0.85rem;">
+                                        <div class="text-center" th:classappend="${pickup.status.name() == 'PENDING' || pickup.status.name() == 'ACCEPTED' || pickup.status.name() == 'PICKED' || pickup.status.name() == 'DELIVERED'} ? 'text-primary' : 'text-muted'">
+                                            <i class="fas fa-clock fs-5"></i><br>Pending
+                                        </div>
+                                        <div class="flex-grow-1 border-top mx-2" th:classappend="${pickup.status.name() == 'ACCEPTED' || pickup.status.name() == 'PICKED' || pickup.status.name() == 'DELIVERED'} ? 'border-primary' : 'border-secondary'"></div>
+                                        
+                                        <div class="text-center" th:classappend="${pickup.status.name() == 'ACCEPTED' || pickup.status.name() == 'PICKED' || pickup.status.name() == 'DELIVERED'} ? 'text-primary' : 'text-muted'">
+                                            <i class="fas fa-thumbs-up fs-5"></i><br>Accepted
+                                        </div>
+                                        <div class="flex-grow-1 border-top mx-2" th:classappend="${pickup.status.name() == 'PICKED' || pickup.status.name() == 'DELIVERED'} ? 'border-primary' : 'border-secondary'"></div>
+                                        
+                                        <div class="text-center" th:classappend="${pickup.status.name() == 'PICKED' || pickup.status.name() == 'DELIVERED'} ? 'text-primary' : 'text-muted'">
+                                            <i class="fas fa-truck fs-5"></i><br>Picked
+                                        </div>
+                                        <div class="flex-grow-1 border-top mx-2" th:classappend="${pickup.status.name() == 'DELIVERED'} ? 'border-primary' : 'border-secondary'"></div>
+                                        
+                                        <div class="text-center" th:classappend="${pickup.status.name() == 'DELIVERED'} ? 'text-success' : 'text-muted'">
+                                            <i class="fas fa-home fs-5"></i><br>Delivered
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -203,7 +253,7 @@
                                 <td><span th:text="${d.quantity}">0</span> <small th:text="${d.unit}">kg</small></td>
                                 <td th:text="${d.location}">Loc</td>
                                 <td th:text="${#temporals.format(d.expiryDate, 'dd MMM yyyy')}">Date</td>
-                                <td th:text="${d.donor.fullName}">Donor</td>
+                                <td th:text="${d.donor != null ? d.donor.fullName : 'N/A'}">Donor</td>
                                 <td>
                                     <form th:action="@{/requests/new/{id}(id=${d.id})}" method="post" style="display:inline">
                                         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">

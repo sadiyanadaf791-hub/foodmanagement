@@ -10,10 +10,16 @@
 </head>
 <body>
 <div class="auth-page">
-    <div class="auth-card">
+    <div class="auth-card" style="max-width: 800px; text-align: left;">
         <div class="auth-logo"><i class="fas fa-triangle-exclamation"></i></div>
         <h2>Something went wrong</h2>
         <p class="auth-subtitle">We could not load the requested page. Please continue from login.</p>
+        <div style="margin: 20px 0; padding: 10px; background: #fee; border: 1px solid #fcc; font-family: monospace; white-space: pre-wrap; word-break: break-all; font-size: 12px; overflow-x: auto;">
+            <strong>Error:</strong> <span th:text="${error}"></span><br/>
+            <strong>Message:</strong> <span th:text="${message}"></span><br/>
+            <strong>Exception:</strong> <span th:text="${exception}"></span><br/>
+            <strong>Trace:</strong> <span th:text="${trace}"></span>
+        </div>
         <a th:href="@{/login}" class="btn-auth">
             <i class="fas fa-right-to-bracket me-2"></i>Back to Login
         </a>

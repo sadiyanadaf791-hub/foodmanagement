@@ -33,6 +33,9 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
 
     long countByStatus(RequestStatus status);
 
-    @Query("SELECT r FROM Request r JOIN FETCH r.donation d JOIN FETCH d.donor WHERE d.donor = :donor")
+    @Query("SELECT r FROM Request r JOIN FETCH r.ngo JOIN FETCH r.donation d JOIN FETCH d.donor WHERE r.ngo = :ngo")
+    List<Request> findDashboardRequestsByNgo(@Param("ngo") User ngo);
+
+    @Query("SELECT r FROM Request r JOIN FETCH r.ngo JOIN FETCH r.donation d JOIN FETCH d.donor WHERE d.donor = :donor")
     List<Request> findRequestsForDonor(@Param("donor") User donor);
 }

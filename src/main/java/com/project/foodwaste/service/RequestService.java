@@ -148,6 +148,16 @@ public class RequestService {
     }
 
     public List<Request> findRequestsForDonor(User donor) {
+        return requestRepository.findDashboardRequestsByDonor(donor);
+    }
+
+    @Transactional
+    public List<Request> getDashboardRequestsByNgo(User ngo) {
+        return requestRepository.findDashboardRequestsByNgo(ngo);
+    }
+
+    @Transactional
+    public List<Request> getDashboardRequestsByDonor(User donor) {
         return requestRepository.findRequestsForDonor(donor);
     }
 

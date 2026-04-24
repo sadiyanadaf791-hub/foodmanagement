@@ -51,6 +51,12 @@ public class DashboardController {
         return "dashboard";
     }
 
+    @GetMapping("/donor/dashboard")
+    public String donorDashboard(Authentication auth, Model model) {
+        return dashboard(auth, model);
+    }
+
+
     private void loadAdminDashboard(Model model) {
         model.addAttribute("totalDonations", donationService.countAll());
         model.addAttribute("totalUsers", userService.countTotal());
@@ -60,7 +66,7 @@ public class DashboardController {
         model.addAttribute("pickedUpDonations", donationService.countByStatus(DonationStatus.PICKED_UP));
         model.addAttribute("pendingRequests", requestService.countByStatus(RequestStatus.PENDING));
         model.addAttribute("mealsSaved", donationService.sumPickedUpQuantity() * 2);
-        model.addAttribute("recentDonations", donationService.findAvailableDonations());
+        model.addAttribute("recentDonations", donationService.getDashboardDonations());
     }
 
     private void loadDonorDashboard(User user, Model model) {
@@ -71,12 +77,12 @@ public class DashboardController {
                 .filter(d -> d.getStatus() == DonationStatus.AVAILABLE).count());
         model.addAttribute("pickedUp", donations.stream()
                 .filter(d -> d.getStatus() == DonationStatus.PICKED_UP).count());
-        model.addAttribute("incomingRequests", requestService.findRequestsForDonor(user));
+        model.addAttribute("incomingRequests", requestService.getDashboardRequestsByDonor(user));
     }
 
     private void loadNgoDashboard(User user, Model model) {
-        model.addAttribute("availableDonations", donationService.findAvailableDonations());
-        var myRequests = requestService.findByNgo(user);
+        model.addAttribute("availableDonations", donationService.getDashboardDonations());
+        var myRequests = requestService.getDashboardRequestsByNgo(user);
         model.addAttribute("myRequests", myRequests);
         model.addAttribute("totalRequests", myRequests.size());
         model.addAttribute("acceptedRequests", myRequests.stream()

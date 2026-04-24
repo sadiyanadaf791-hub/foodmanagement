@@ -48,9 +48,10 @@
             </div>
             <div class="mb-3">
                 <label class="form-label-custom">I am a *</label>
-                <select th:field="*{role}" class="form-select" required>
+                <select th:field="*{role}" class="form-control" required>
                     <option value="">Select your role</option>
-                    <option th:each="r : ${roles}" th:value="${r}" th:text="${r}"></option>
+                    <option value="DONOR">Donor</option>
+                    <option value="NGO">NGO</option>
                 </select>
             </div>
             <div class="mb-3">
