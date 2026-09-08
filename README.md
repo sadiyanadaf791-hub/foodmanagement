@@ -35,7 +35,7 @@ FoodBridge is a full-stack enterprise web application built with Spring Boot tha
 - MySQL 8.0+
 - Maven 3.8+
 
-## Setup & Run
+
 
 ### 1. Create Database
 ```sql
