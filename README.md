@@ -37,7 +37,9 @@ FoodBridge is a full-stack enterprise web application built with Spring Boot tha
 
 
 
-
+### 1. Create Database
+```sql
+CREATE DATABASE food_waste_db;
 ```
 
 ### 2. Configure Database (already configured in application.properties)
