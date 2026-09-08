@@ -45,7 +45,7 @@ CREATE DATABASE food_waste_db;
 ### 2. Configure Database (already configured in application.properties)
 - **URL**: `jdbc:mysql://localhost:3306/food_waste_db`
 - **Username**: `root`
-- **Password**: `root`
+- 
 
 ### 3. Build & Run
 ```bash
