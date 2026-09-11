@@ -117,7 +117,7 @@ FoodBridge follows a donor-to-NGO redistribution workflow:
 5. An NGO can request and accept a suitable donation.
 6. The pickup status is updated through the delivery workflow.
 7. Expired donations are automatically detected and marked accordingly.
-8. The SDG dashboard tracks the overall social impact of the platform.
+
 
 ## License
 
