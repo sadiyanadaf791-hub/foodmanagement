@@ -90,21 +90,7 @@ src/main/resources/
 └── static/                       # CSS, JS assets
 
 ```
-## Social Impact
 
-FoodBridge aims to reduce food wastage while improving access to surplus food for communities in need.
-
-### Key Impact Areas
-
-- Reduces unnecessary disposal of surplus food
-- Connects food donors with NGOs through a centralized platform
-- Enables faster communication through real-time alerts
-- Tracks the movement of donations from availability to pickup
-- Provides measurable impact statistics through the SDG dashboard
-
-### SDG Alignment
-
-The project supports **UN Sustainable Development Goal 2 — Zero Hunger** by using technology to improve the redistribution of surplus food to communities that need it.
 ## System Workflow
 
 FoodBridge follows a donor-to-NGO redistribution workflow:
