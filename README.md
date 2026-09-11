@@ -89,6 +89,18 @@ src/main/resources/
 ├── templates/                    # Thymeleaf HTML templates
 └── static/                       # CSS, JS assets
 ```
+## System Workflow
+
+FoodBridge follows a donor-to-NGO redistribution workflow:
+
+1. A donor registers and logs into the platform.
+2. The donor creates a food donation with relevant details.
+3. The donation is stored and made available to registered NGOs.
+4. NGOs receive alerts about new available donations.
+5. An NGO can request and accept a suitable donation.
+6. The pickup status is updated through the delivery workflow.
+7. Expired donations are automatically detected and marked accordingly.
+8. The SDG dashboard tracks the overall social impact of the platform.
 
 ## License
 
