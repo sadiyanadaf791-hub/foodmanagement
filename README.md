@@ -114,7 +114,6 @@ FoodBridge follows a donor-to-NGO redistribution workflow:
 2. The donor creates a food donation with relevant details.
 3. The donation is stored and made available to registered NGOs.
 4. NGOs receive alerts about new available donations.
-5. An NGO can request and accept a suitable donation.
 
 
 
