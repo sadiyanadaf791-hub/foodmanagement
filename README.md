@@ -88,6 +88,26 @@ src/main/resources/
 ├── application.properties
 ├── templates/                    # Thymeleaf HTML templates
 └── static/                       # CSS, JS assets
+## User Roles
+
+### Admin
+- Manage registered users
+- Monitor system activity
+- View platform statistics
+- Monitor food redistribution impact
+
+### Donor
+- Register and manage account
+- Create food donations
+- Track donation status
+- Monitor pickup progress
+
+### NGO
+- View available food donations
+- Receive new donation alerts
+- Request suitable donations
+- Accept or reject donation requests
+- Track pickup status
 ```
 ## System Workflow
 
