@@ -111,7 +111,7 @@ The project supports **UN Sustainable Development Goal 2 — Zero Hunger** by us
 FoodBridge follows a donor-to-NGO redistribution workflow:
 
 1. A donor registers and logs into the platform.
-2. The donor creates a food donation with relevant details.
+
 
 
 
