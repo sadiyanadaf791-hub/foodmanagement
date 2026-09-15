@@ -108,7 +108,6 @@ The project supports **UN Sustainable Development Goal 2 — Zero Hunger** by us
 
 ## System Workflow
 
-FoodBridge follows a donor-to-NGO redistribution workflow:
 
 
 
