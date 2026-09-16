@@ -97,7 +97,7 @@ FoodBridge aims to reduce food wastage while improving access to surplus food fo
 ### Key Impact Areas
 
 - Reduces unnecessary disposal of surplus food
-- Connects food donors with NGOs through a centralized platform
+
 
 
 
