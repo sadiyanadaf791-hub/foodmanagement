@@ -98,7 +98,7 @@ FoodBridge aims to reduce food wastage while improving access to surplus food fo
 
 - Reduces unnecessary disposal of surplus food
 - Connects food donors with NGOs through a centralized platform
-- Enables faster communication through real-time alerts
+
 
 
 
