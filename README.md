@@ -100,7 +100,7 @@ FoodBridge aims to reduce food wastage while improving access to surplus food fo
 - Connects food donors with NGOs through a centralized platform
 - Enables faster communication through real-time alerts
 - Tracks the movement of donations from availability to pickup
-
+- Provides measurable impact statistics through the SDG dashboard
 
 ### SDG Alignment
 
