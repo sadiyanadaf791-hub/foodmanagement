@@ -27,7 +27,7 @@ FoodBridge is a full-stack enterprise web application built with Spring Boot tha
 - **Pickup Tracking** — Pending → Accepted → In Transit → Picked Up
 - **SDG Dashboard** — Impact metrics using raw JDBC (meals saved, NGOs served)
 - **Admin Panel** — User management, system statistics
-- **Notifications** — In-app notification system with read/unread states
+
 
 ## Prerequisites
 
