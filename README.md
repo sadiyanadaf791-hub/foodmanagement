@@ -20,7 +20,7 @@ FoodBridge is a full-stack enterprise web application built with Spring Boot tha
 ## Features
 
 - **Authentication** — Login/Register with role-based access (ADMIN, DONOR, NGO)
-- **Food Donations** — Full CRUD with image upload, status tracking, search & filter
+-
 
 
 
