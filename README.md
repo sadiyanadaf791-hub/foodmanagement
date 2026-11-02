@@ -32,7 +32,11 @@ FoodBridge is a full-stack enterprise web application built with Spring Boot tha
 
 
 
+## Technologies Used
 
+- Frontend: HTML, CSS, JavaScript
+- Backend: Add your actual backend technology
+- Database: Add your actual database
 
 ## Prerequisites
 
