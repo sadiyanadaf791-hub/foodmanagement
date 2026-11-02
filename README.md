@@ -129,3 +129,6 @@ The project supports **UN Sustainable Development Goal 2 — Zero Hunger** by us
 ## License
 
 This project is for academic purposes.
+
+## Latest Project Update
+Documentation updated to improve project clarity and readability.
