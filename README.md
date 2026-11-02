@@ -24,7 +24,11 @@ FoodBridge is a full-stack enterprise web application built with Spring Boot tha
 
 
 
+## Project Highlights
 
+- Simple and user-friendly interface.
+- Organized food management features.
+- Improved project structure and readability.
 
 
 
